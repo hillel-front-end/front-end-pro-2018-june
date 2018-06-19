@@ -79,3 +79,6 @@ function gen(start, step) { // LE = { start: 5, step: 2 }, scope = global
 }
 
 step = gen(5, 2);
+
+step();
+step();
