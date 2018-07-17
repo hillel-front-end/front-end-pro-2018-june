@@ -46,17 +46,30 @@ window.onload = function(){
     // block.addEventListener('dblclick', handler);
 
     // ----------------------------------
+    var ox, oy;
 
-    block.addEventListener('mousemove', function(event){
-        block.querySelector('.inner')
-            .innerHTML = "X:" + event.offsetX + " <br /> Y: "+ event.offsetY;
+    block.addEventListener('mousedown', function(event){
+        ox = event.offsetX;
+        oy = event.offsetY;
+        document.addEventListener('mousemove', onMouseMove);
     });
 
-    document.addEventListener('mousemove', function(event){
-        block.querySelector('.outer')
-            .innerHTML = "XO:" + event.clientX + " <br /> YO: "+ event.clientY;
+    document.addEventListener('mouseup', function(event){
+        document.removeEventListener('mousemove', onMouseMove);
     });
 
+    function onMouseMove(event){
+        block.style.left = event.clientX - ox + 'px';
+        block.style.top = event.clientY - oy + 'px';
+    }
+
+
+
+    document
+        .querySelector('.input')
+        .addEventListener('change', function(event){
+            console.log(event.type, event);
+        });
 }
 
 
