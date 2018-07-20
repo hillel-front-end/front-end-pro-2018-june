@@ -22,6 +22,29 @@
 
 # Лекция
 
-1) `data = { name: 'menu', type: 'row|column', items: ['Home', 'Gallery', 'Contact'] }`
+1) 
+		data = { 
+			name: 'menu', 
+			type: 'row|column', 
+			items: [
+				{
+					title: 'title 1',
+					handler: 'ActionAdd'
+				},
+				{
+					title: 'title 2',,
+					handler: 'ActionSaveAs'
+					items: [
+						{ title: 'inner 1' }, { title: 'inner 2' }
+					]
+				},
+				{
+					title: 'title 3',
+					handler: 'ActionExit'
+				}
+			]
+		}
 
 Создать вертикальное или горизонтальное (в зависимости от свойства type) меню, в котором будут элементы из свойства items.
+Inner items - выпадающее меню при наведении.
+hander - хранит название функции, которая выполнится при нажатии на пункт меню.
