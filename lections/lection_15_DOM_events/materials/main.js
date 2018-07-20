@@ -36,43 +36,47 @@ window.onload = function() {
 
     // -------------------------------------
 
-    var list = [
-            {
-                id: 1,
-                title: 'Title 1'
-            },
-            {
-                id: 2,
-                title: 'Title 2'
-            },
-            {
-                id: 3,
-                title: 'Title 3'
-            }
-        ];
+    // var list = [
+    //         {
+    //             id: 1,
+    //             title: 'Title 1'
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Title 2'
+    //         },
+    //         {
+    //             id: 3,
+    //             title: 'Title 3'
+    //         }
+    //     ];
 
-    if (!list.length) {
-        return;
-    }
+    var data = { 
+        name: 'menu', 
+        type: 'column', 
+        items: [
+            {
+                title: 'Home',
+                handler: 'homeAction'
+            },
+            {
+                title: 'About'
+            }
+        ],
+    };
+
+    // if (!list.length) {
+    //     return;
+    // }
 
     var ulElem = document.createElement('UL');
-    ulElem.classList.add('item-list');
+    ulElem.classList.add('menu', data.type);
 
     // include li
-    var li;
+    var li, list = data.items;
     for(var i = 0; i < list.length; i++){
         li = document.createElement('li');
         li.innerHTML = list[i].title;
-        li.classList.add('item-' + list[i].id);
-        li.dataset.id = list[i].id;
-        // li.dataset.fooNameBarDAR = "";
-
-        li.addEventListener('click', function(event){
-            console.log(event.target.dataset.id);
-
-            event.target.remove();
-        });
-
         ulElem.appendChild(li);
     }
 
