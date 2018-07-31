@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+
+.menu {
+    position: absolute;
+    width: 150px;
+    padding: 5px;
+    border: 2px solid black;
+    display: none;
+}
+
+.menu__item {
+    border-bottom: 1px solid grey;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.menu__item:hover {
+    background-color: lightgrey;
+}
+
+.menu__item:last-child {
+    border-bottom: none;
+}
+
+.menu.show {
+    display: block;
+}
