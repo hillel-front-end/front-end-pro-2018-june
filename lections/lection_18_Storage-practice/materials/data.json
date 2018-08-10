@@ -1,0 +1,17 @@
+{
+    "title": "hello",
+    "age": 10,
+    "isTrue": true,
+    "location": {
+        "city": "Kiev",
+        "country": "Ukraine",
+        "postalCode": "04053",
+        "streets": [
+            "a1",
+            "a2"
+        ]
+    },
+    "list": [
+        1, 2, 3, "str", false
+    ]
+}
