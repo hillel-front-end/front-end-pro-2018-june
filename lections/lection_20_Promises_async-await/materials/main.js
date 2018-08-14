@@ -21,9 +21,9 @@ function setTimer(resolve, reject){
 //         console.log(resp);
 //         resp += 100;
 
-//         // return new Promise(function(resolve, reject){
-//         //     reject(resp);
-//         // })
+        // return new Promise(function(resolve, reject){
+        //     reject(resp);
+        // })
 
 //         return Promise.reject(resp);
 //     }, function(err){ console.error(err); return err;}) // return Promise.resolve()
@@ -65,10 +65,116 @@ function setTimer(resolve, reject){
 // ---------------------------
 
 // only 1 param (resolve function)
-async(setTimer)
-    .then()
-    .then()
-    .then()
+// async(setTimer)
+//     .then(function(){
+//         doAjax()
+//     })
+//     .then()
+//     .then()
+//     .catch(function(err){
+//         console.log(err);
+//     })
+
+
+// ------------------------------------
+
+function doAjax(method, url){
+    var xhr = new XMLHttpRequest();
+
+    xhr.open(method, url, true);
+
+    return new Promise(function(resolve, reject){
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState != 4) {
+                return;
+            }
+
+            var resp = JSON.parse(xhr.responseText);
+
+            if (xhr.status != 200) {
+                reject(xhr.statusText);
+            }
+
+            // if(!resp.x) reject();
+
+            resolve(resp);
+        }
+
+        xhr.send();
+    });
+}
+
+
+var data, data2;
+
+
+// doAjax('GET', '/data.json')
+//     .then(function(resp){
+//         data2 = resp;
+// // 
+//         return doAjax('GET', '/data2.json');
+//     })
+//     .then(function(resp){
+//         data = resp;
+// // 
+//         console.log(data, data2);
+//     });
+
+// ------------------------
+
+// Promise.all()
+
+function gPr(){
+    var local = Math.random()*100;
+
+    return new Promise(function(resolve, reject){
+        // if (local > 50) {
+            resolve(local);
+        // }
+
+        // reject(local);
+    })
+}
+
+Promise
+    .all([gPr(), gPr(), gPr(), gPr(), gPr(), gPr()])
+    .then(function(values){
+        console.log(values);
+        var bad = [];
+        for(var i = 0; i < values.length; i++){
+            if (values[i] < 50) 
+                bad.push(values[i]);
+        }
+
+        console.log(bad)
+    })
     .catch(function(err){
         console.log(err);
     })
+    
+
+var asyncs = [
+];
+var list = ['', 2, 3, 4]
+
+for(var i = 0; i < list.length; i++){
+    asyncs.push( doAjax('GET', '/data'+ list[i] +'.json') );
+}
+
+
+// --------------------------- task
+Promise
+    .all(asyncs)
+    .then(runAfter([doIt1, doIt2, doIt3]))
+
+
+
+// ---------------------------
+Promise
+    .all(asyncs)
+    .then(doIt1)
+    .then(doIt2)
+    .then(doIt3)
+
+
+// ----------------------------------
