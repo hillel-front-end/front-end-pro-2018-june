@@ -228,3 +228,51 @@ console.log( obj.f(10) );
 // document.addEventListener('click', event => {
 //     console.log('click', event.targets);
 // })
+
+
+
+
+function getByAge(list, age) {
+    return list.filter(item => item.age > age);
+}
+
+getByAge(list, 11);
+getByAge(list, 40);
+
+var orders = [{
+    id: 5,
+    date: '21-01-2015',
+    amount: 2
+}, {
+    id: 8,
+    date: '24-01-2015'
+}, {
+    id: 21,
+    date: '29-01-2015',
+    amount: 4
+}, {
+    id: 78,
+    date: '04-02-2015',
+    amount: 8
+}, {
+    id: 23,
+    date: '15-02-2015',
+    amount: 8
+}];
+
+var res = orders.reduce((prev, item, pos, list) => {
+    if (!item.amount) {
+        return prev;
+    }
+
+    prev.count++;
+    prev.sum += item.amount;
+
+    if (pos === list.length - 1){
+        return prev.sum / prev.count;
+    }
+    
+    return prev;
+}, { sum: 0, count: 0 });
+
+console.log(res);
