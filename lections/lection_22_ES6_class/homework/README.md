@@ -1,5 +1,9 @@
 # Изучить материал
 
++ http://es6-features.org/
++ https://derickbailey.com/2017/06/06/3-features-of-es7-and-beyond-that-you-should-be-using-now/
++ https://codeburst.io/what-are-javascript-generators-and-how-to-use-them-c6f2713fd12e
+
 # Практика
  
 

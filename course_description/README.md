@@ -162,7 +162,7 @@ bblablad (Skype)
     + Exports
     + ES2015 Modules
 
-## lection_24_getter-setter
+## lection_24_getter-setter_дескрипторы
 
 + Object.defineProperty
 + get/set
