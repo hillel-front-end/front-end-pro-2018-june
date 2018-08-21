@@ -143,13 +143,13 @@ bblablad (Skype)
 
 + Перебирающие методы ES5
 + var, let, const
-+ генераторы
 + arrow functions
 
 ## lection_22_ES6_class
 
 + Классы
 + super и наследование
++ Генераторы
 + Деструктуризация
 
 ## lection_23_ES6_modules
