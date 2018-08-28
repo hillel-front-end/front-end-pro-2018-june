@@ -61,11 +61,11 @@ console.log('Lection_23');
 
 // дескрипторы
 
-const obj = {
-    str: 'hello',
-    x: 10,
-    y: 40
-}
+// const obj = {
+//     str: 'hello',
+//     x: 10,
+//     y: 40
+// }
 
 // Object.defineProperty(obj, 'y', {
 //     value: obj,
@@ -86,15 +86,15 @@ const obj = {
 //     value: 30,
 // });
 
-Object.defineProperty(obj, 'foo', {
-    configurable: false,
-    get() {
-        return this.x + this.y;
-    },
-    set(value) {
-        this.v = value;
-    }
-});
+// Object.defineProperty(obj, 'foo', {
+//     configurable: false,
+//     get() {
+//         return this.x + this.y;
+//     },
+//     set(value) {
+//         this.v = value;
+//     }
+// });
 
 // Object.defineProperty(obj, 'foo', {
 //     configurable: false,
@@ -106,6 +106,82 @@ Object.defineProperty(obj, 'foo', {
 //     }
 // });
 
+// console.log(obj);
+
+// var data = {
+//     // set info(info){
+//     //     this.infoVal = info
+//     // },
+//     // get info(){
+//     //     return this.infoVal;
+//     // }
+// }
 
 
-console.log(obj);
+// Object.defineProperty(data, 'model', {
+//     set(value){
+//         if (this.str) {
+//             this.str = this.str.split(value);
+
+//             this.info = {
+//                 symbol: value,
+//                 count: this.str.length - 1
+//             };
+//         } else {
+//             this.str = value;
+//         }
+//     },
+//     get() {
+//         return this.info;
+//     }
+// });
+
+// data.model = 'Hello, how, are you?'
+// data.model = ', ';
+// console.log(data.str);
+// console.log(data.model)
+
+
+// --------------
+var operations = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b,
+    '*': (a, b) => a * b,
+    '/': (a, b) => a / b,
+    '%': (a, b) => a % b
+}
+
+var obj = {
+    x: 10,
+    p: 20,
+    z: 300
+}
+
+Object.defineProperty(obj, 'model', {
+    set(value){
+        for(let key in value) {
+            let oper =  value[key].operation;
+            let val = value[key].value;
+
+            this[key] = operations[oper](this[key] || 0, val);
+        }
+    }
+});
+
+obj.model = {
+    x: { value: 33, operation: '*' }, 
+    z: { value: 75, operation: '+' },
+    k: { value: 4, operation: '%' }
+};
+
+obj.model = {
+    x: { value: 33, operation: '*' }, 
+    z: { value: 75, operation: '+' },
+    k: { value: 4, operation: '%' }
+};
+
+
+console.log(obj)
+
+
+

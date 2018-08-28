@@ -29,8 +29,12 @@
 
 2) Создать сеттер `model`, который принимает объект и выполняет `update` всех существующих свойств в текущем объекте.
 
-`obj = {x:10, y: 20};`
-`obj.model = { x: { value: 33, operation: '*' }, z: { value: 75, operation: '+' } }`
+`obj = {x:10, y: 20, p: 15};`
+  `obj.model = { 
+      x: { value: 33, operation: '*' }, 
+      z: { value: 75, operation: '+' },
+      p: { value: 4, operation: '%' }
+  }`
 
 
-`console.log(obj); -> {x:330, y: 20, z: 75}`
+`console.log(obj); -> {x:330, y: 20, z: 75, p: 3}`
