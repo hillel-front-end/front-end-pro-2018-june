@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <!-- <div id="app">
+        {{ message }}
+
+        {{ foo }}
+        <div>
+            {{ message + foo[0] }}
+        </div>
+    </div> 
+
+    <hr />
+
+    <div id="app-2">
+        <span v-bind:data-pos="message">
+            attr <br /> example
+        </span>
+    </div>
+
+    <hr />
+
+    <div id="app-3">
+        <span v-if="seen">Сейчас меня видно</span>
+    </div>
+
+    <hr />
+
+    <div id="app-4">
+        <ol>
+            <li 
+                v-for="item in todos"
+                v-if="item.text"
+               >
+                {{ item.text }}
+                <span></span>
+            </li>
+            
+        </ol>
+    </div>
+
+    <hr>
+
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="clickMeEvent">Click me</button>
+    </div>
+
+    <hr>
+
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+
+    <hr>
+
+    <hr>
+
+    <hr> -->
+
+    <hr>
+
+    <div class="task-manager">
+        <ul>
+            <li v-for="item in listL">
+                {{ item }}
+            </li>
+        </ul>
+        <button v-on:click='moveR'>Move right</button>
+        <hr>
+        <ul>
+            <li v-for="item in listR">
+                {{ item }}
+            </li>
+        </ul>
+        <button v-on:click='moveL'>Move left</button>
+
+    </div>
+    
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
