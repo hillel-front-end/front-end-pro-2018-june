@@ -58,6 +58,32 @@ Vue.component('foo-bar', {
   `
 });
 
+
+
+Vue.component('select-list', {
+  props: ['list', 'keytitle'],
+  data: function(){
+    return {
+      selected: ''
+    }
+  },
+  methods: {
+    onChange: function(){
+      this.$emit('country-change', this.selected);
+    }
+  },
+  template: `
+    <div>
+      <select v-on:change="onChange" v-model="selected">
+        <option v-for="item of list" v-bind:value="item.key">
+          {{ keytitle ? item[keytitle] : item }}
+        </option>
+      </select>
+
+    </div>
+  `
+});
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -74,7 +100,22 @@ var app = new Vue({
       id: 10,
       title: 'yo',
       class: "dodo"
-    }
+    },
+    countries: [
+      {
+        title: 'Ukraine',
+        key: 'ua'
+      },
+      {
+        title: 'German',
+        key: 'de'
+      }
+    ],
+    cities: {
+      ua: ['Kyiv', 'Kharkiv'],
+      de: ['Berlin', 'Munich']
+    },
+    selectedCountry: ''
   },
   methods: {
     UpdateCounter1: function(val){
@@ -89,6 +130,9 @@ var app = new Vue({
     },
     getSumMethod: function(){
       return parseInt(this.counter1) + parseInt(this.counter2);
+    },
+    countryUpd: function(val){
+      this.selectedCountry = val;
     }
   },
   computed: {

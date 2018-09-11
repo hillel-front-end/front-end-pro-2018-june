@@ -70,6 +70,18 @@
             v-model="counter"
             v-on:change-counter="UpdateCounter" 
         -->
+
+        <hr>
+        <hr>
+        <select-list 
+            v-bind:list="countries" 
+            v-bind:keytitle="'title'"
+            v-on:country-change="countryUpd">
+        </select-list> 
+
+        <select-list 
+            v-bind:list="cities[selectedCountry]">
+        </select-list> 
     </div> 
 
 
@@ -94,7 +106,6 @@
      -->
 
      
-     <foo-bar></foo-bar>    
     
     <script src="./main.js"></script>
 </body>
