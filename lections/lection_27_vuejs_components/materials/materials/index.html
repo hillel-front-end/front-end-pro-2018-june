@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        app: {{ text }}
+        <!-- <foo-bar 
+            v-bind:title="text"
+            v-bind:obj="obj"></foo-bar>  -->
+        <!-- <ul>
+            <li v-for="(value, key, index) in items">
+                {{ value }} || {{ key }} || {{ index }}
+            </li>
+        </ul> -->
+        <hr>
+
+        <!-- <button v-on:contextmenu.capture="clickEv($event)">Once</button> -->
+
+        <!-- 
+        .stop
+        .prevent
+        .once
+
+        .passive
+
+        .capture
+        .self
+
+         -->
+         <!-- <form v-on:submit.prevent></form> -->
+         <!-- <button v-on:click.stop.prevent="func"></button> -->
+
+         <hr>
+         <test-component 
+            v-bind:counter="counter1"
+            v-on:update="UpdateCounter1"
+         >
+        </test-component>
+
+        <test-component 
+            v-bind:counter="counter2"
+            v-on:update="UpdateCounter2"
+         >
+        </test-component>
+
+        counter1: {{ counter1 }}
+        <br>
+        counter2: {{ counter2 }}
+
+        <br>
+        sum: {{ getSum }}
+        getSumMethod: {{ getSumMethod() }}
+
+        <ul>
+            <li v-for="num in getList">
+                {{ num }}
+            </li>
+        </ul>
+        <!-- 
+            v-model="counter"
+            v-on:change-counter="UpdateCounter" 
+        -->
+    </div> 
+
+
+    <!-- 
+
+
+        <input v-model="searchText">
+         <=>
+        <input
+        v-bind:value="searchText"
+        v-on:input="searchText = $event.target.value"
+        >
+        
+        у компонент
+        <custom-input
+        v-bind:value="searchText"
+        v-on:input="searchText = $event"
+        ></custom-input>
+
+
+
+     -->
+
+     
+     <foo-bar></foo-bar>    
+    
+    <script src="./main.js"></script>
+</body>
+</html>
