@@ -18,20 +18,25 @@
        <some></some>
        <br>
        <hr>
-       {{ num }}
-       <model-example v-model="num">
-           Content<br />
-           Top Content
+       {{ param }}
+        <model-example v-model="param" v-bind:x="{ val: 10  }">
+           <!-- <span>Hello {{ value }}</span> -->
+           <!--  -->
+           <span v-if="param">Span</span>
+           <!-- <input type="text" v-model="value"> -->
 
            <!--  -->
 
-           <input type="text" v-model="value">
-
-           <!--  -->
-
-           <template slot="fooBar">
+           <template v-for="item of list" slot="fooBar">
                 FooBar slot
            </template>
+
+           <template>
+                Default
+            </template> 
+            
+            <h1 slot="header">YOOO</h1>
+           
            <!-- + v-for -->
        </model-example>
     </div> 

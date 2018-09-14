@@ -9,23 +9,28 @@ var someComponent = {
 
 Vue.component('model-example', {
   model: {
-    prop: 'checked',
+    prop: 'num',
     event: 'change'
   },
-  props: ['checked'],
+  props: ['num', 'x'],
+  data: function(){
+    return {
+      value: 'Inner hello world'
+    }
+  },
   template: `
     <div>
       <input
         type="checkbox"
-        v-bind:checked="checked"
+        v-bind:checked="num"
         v-on:change="$emit('change', $event.target.checked)"
       >
       <hr />
       <slot></slot>
-      <slot name="input"></slot>
-      <slot name="fooBar"></slot>
-      
-
+      <hr />
+      {{ value }} 
+      <hr />
+      <slot name="fooBar"></slot> 
     </div>
   `
 });
@@ -35,10 +40,10 @@ let app = new Vue({
   el: '#app',
   data: {
     value: "Some value",
-    num: 204,
+    param: true,
     list: [1, 2, 3, 4]
   },
   components: {
-    some: someComponent
+    'some': someComponent
   }
 })
