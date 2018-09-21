@@ -73,3 +73,26 @@ console.log('lection_30');
 
 // ----------------------------
 
+
+var str = `
+<br />
+<input />
+<img />
+e
+qwe
+qwe
+qw
+eqw
+<table>
+    <tr></tr>
+</table>
+<div></div>
+qwe
+qwe
+qwe
+qw
+eqw
+e
+wq
+
+`
